@@ -1,0 +1,25 @@
+img.profile-img {
+  max-width: 120px;
+  max-height: 160px;
+}
+
+.data {
+  background: white;
+}
+
+th {
+  text-align: center;
+  background: #eeeeee;
+}
+
+table.data tr {
+  height: 80px;
+}
+
+table.data tr:nth-child(odd) td{
+  background-color: ghostwhite;
+}
+table.data tr:nth-child(even) td{
+  background-color: silver;
+}
+

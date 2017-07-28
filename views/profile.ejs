@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <% include partials/head %>
+    <body>
+    <div class="col-sm-8 col-sm-offset-2">
+
+        <div class="text-center">
+            <h1 class=" fa fa-user"> Profile</h1><br>
+            <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
+            <span class="fa fa-sign-out"><a href="/logout"> Sign out</a></span>
+            <hr>
+            <div class="jumbotron">
+                <% if (user.local.email != null) { %>
+                <img src="https://app.nimia.com/static/img/default_profile.png" class="img-circle profile-img"><br>
+                <strong>email</strong>: <%= user.local.email %><br>
+                <% } %>
+
+                <br>
+
+                <form method="POST" action="/search" name="Form">
+                    <table id="login-table" align="center">
+                        <tr>
+                            <td>
+                                <input type="text" name="search" size="15" value="" placeholder="Job Title" required autofocus/> |
+                                <input type="text" name="city" size="15" value="" placeholder="City"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><br><input type="submit" value="Global Search" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+
+            <% if (data != null) { %>
+            <div class="data">
+
+                <strong>Jobs Found: <%= data.url.length%></strong><br><br>
+
+                <table class="data">
+                    <tr>
+                        <th>Position</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>SourceWeb</th>
+                        <th>Date</th>
+                    </tr>
+                    <% for (var i=0; i<data.url.length; i++) { %>
+                    <tr>
+                        <td><a href="<%= data.url[i] %>"><%= data.position[i] %></a></td>
+                        <td><%= data.company[i] %></td>
+                        <td><%= data.location[i] %></td>
+                        <td><%= data.tag[i] %></td>
+                        <td><%= data.date[i] %></td>
+                    </tr>
+                    <% } %>
+                </table>
+
+            </div>
+            <% } %>
+        </div>
+
+
+
+    </div>
+    </body>
+</html>
