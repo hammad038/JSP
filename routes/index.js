@@ -64,7 +64,7 @@ router.post('/search', function(req, res) {
             position: [],
             company: [],
             location: [],
-            tag: [],
+            tag: []
         }
         scrapData(inputSearch, requestDataObj, function () {
             res.render('profile.ejs', { user: req.user, data: requestDataObj });
